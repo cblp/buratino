@@ -3,7 +3,7 @@
 ## Create database
 
 ```sh
-$ sqlite3 db.sqlite '.read schema.sql'
+$ sqlite3 rates.db '.read schema.sql'
 ```
 
 ## Add currency pair to database
