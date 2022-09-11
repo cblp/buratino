@@ -1,9 +1,0 @@
-import sqlite3
-
-connection = sqlite3.connect('db.sqlite')
-cursor = connection.execute('SELECT rate FROM rates WHERE currency = "USD" AND base = "EUR";')
-result = cursor.fetchone()
-if result is not None:
-    (rate,) = result
-else:
-    print('no such currency pair')
