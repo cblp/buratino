@@ -1,12 +1,14 @@
 import sqlite3
 from decimal import Decimal
-import requests
-import xml.etree.ElementTree as ET
+from xml.etree import ElementTree
 
-url = 'http://www.cbr.ru/scripts/XML_daily.asp'
-response = requests.get(url)
+import requests
+
+URL = 'http://www.cbr.ru/scripts/XML_daily.asp'
+
+response = requests.get(URL)
 response.raise_for_status()
-root = ET.fromstring(response.text)
+root = ElementTree.fromstring(response.text)
 db = sqlite3.connect('rates.db')
 for valute in root.findall("Valute"):
     currency = valute.find("CharCode").text
@@ -19,5 +21,5 @@ for valute in root.findall("Valute"):
             (currency, base, rate) VALUES ('{currency}', 'RUB', {rate})
             ON CONFLICT DO UPDATE SET rate = {rate};
     ''')
-    print(currency, rate, r)
+    print('updated', currency, 'RUB', rate)
 db.commit()
