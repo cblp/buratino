@@ -4,6 +4,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def rates():
     connection = sqlite3.connect('rates.db')
@@ -24,6 +25,7 @@ def rates():
         ])
         + "</table>"
     )
+
 
 if __name__ == "__main__":
     app.run(debug=True)
