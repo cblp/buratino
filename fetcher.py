@@ -11,10 +11,10 @@ response.raise_for_status()
 root = ElementTree.fromstring(response.text)
 db = sqlite3.connect('rates.db')
 for valute in root.findall("Valute"):
-    currency = valute.find("CharCode").text
+    currency = valute.findtext("CharCode")
     rate = (
-        Decimal(valute.find("Value").text.replace(",", "."))
-        / Decimal(valute.find("Nominal").text)
+        Decimal(valute.findtext("Value").replace(",", "."))
+        / Decimal(valute.findtext("Nominal"))
     )
     r = db.execute(f'''
         INSERT INTO rates
