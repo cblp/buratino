@@ -1,0 +1,1 @@
+[print(' '*s + '*'*t) for s, t in zip(range(int(input('HEIGHT = '))-1, 0, -1), range(1, int(input('(again) HEIGHT = '))*2, 2))]
