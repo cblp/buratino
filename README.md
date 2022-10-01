@@ -37,3 +37,14 @@ if result is not None:
 else:
     # no such currency pair
 ```
+
+## Comprehensions
+
+```py
+r = {
+    code: valute['Value']
+    for code, valute in resp['Valute'].items()
+    if code in {'USD', 'EUR'}
+}
+# r = {'USD': 60.3713, 'EUR': 60.2187}
+```
