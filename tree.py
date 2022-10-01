@@ -1,1 +1,16 @@
-[print(' '*s + '*'*t) for s, t in zip(range(int(input('HEIGHT = '))-1, 0, -1), range(1, int(input('(again) HEIGHT = '))*2, 2))]
+SPACE = ' '
+STRAR = '*'
+
+if __name__ == "__main__":
+    rows = int(1)
+    spaces = rows-1
+    stars = 2
+
+    for i in range(rows):
+        print(
+            (SPACE*spaces) +
+            (STRAR*stars) +
+            (SPACE*spaces)
+        )
+        stars += 2
+        spaces -= 1
