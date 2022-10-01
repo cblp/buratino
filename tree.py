@@ -2,7 +2,7 @@ SPACE = ' '
 STRAR = '*'
 
 if __name__ == "__main__":
-    rows = int(1)
+    rows = 1
     spaces = rows-1
     stars = 2
 
